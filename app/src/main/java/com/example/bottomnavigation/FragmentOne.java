@@ -16,6 +16,7 @@ public class FragmentOne extends Fragment {
     private FragmentOneBinding binding;
     private View root;
 
+    // This function is called when this fragment's view is first created
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentOneBinding.inflate(inflater, container, false);
@@ -25,6 +26,7 @@ public class FragmentOne extends Fragment {
         return root;
     }
 
+    // This function is called when this fragment's view is destroyed
     @Override
     public void onDestroyView() {
         super.onDestroyView();

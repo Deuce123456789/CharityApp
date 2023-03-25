@@ -19,6 +19,7 @@ public class FragmentFour extends Fragment {
     private FragmentFourBinding binding;
     private View root;
 
+    // This function is called when this fragment's view is first created
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class FragmentFour extends Fragment {
         return root;
     }
 
+    // This function is called when this fragment's view is destroyed
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -42,6 +44,8 @@ public class FragmentFour extends Fragment {
         TextView displayedText = root.findViewById(R.id.text_four);
         displayedText.setText("This is the fourth fragment.");
 
+        // We can set up button onClickListeners the same way as before, the only difference
+        // is we need to use root.finViewById() since we're in a Fragment, not an Activity
         Button button = root.findViewById(R.id.button_four);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

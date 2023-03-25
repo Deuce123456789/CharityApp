@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
+      The items here determine the titles and images used for each item in the bottom
+      navigation bar
+    -->
+
     <item
         android:id="@+id/navigation_first"
         android:icon="@drawable/ic_home_black_24dp"

@@ -5,6 +5,11 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_first">
 
+    <!--
+      The items below determine which Fragment (Java file and XML layout file) corresponds
+      to each item in the bottom navigation bar
+    -->
+
     <fragment
         android:id="@+id/navigation_first"
         android:name="com.example.bottomnavigation.FragmentOne"
