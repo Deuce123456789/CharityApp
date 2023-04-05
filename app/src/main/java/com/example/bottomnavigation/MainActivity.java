@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // These two lines sets up the navigation controller using the above components
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+        System.out.println("hello there buddy pals");
     }
 
 }
