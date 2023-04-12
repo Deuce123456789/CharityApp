@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.example.bottomnavigation.databinding.FragmentOneBinding;
 
 public class FragmentOne extends Fragment {
-
+    //This is a test
     private FragmentOneBinding binding;
     private View root;
 

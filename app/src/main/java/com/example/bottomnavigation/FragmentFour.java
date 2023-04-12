@@ -1,6 +1,8 @@
 package com.example.bottomnavigation;
 
 import android.content.Context;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +54,7 @@ public class FragmentFour extends Fragment {
             public void onClick(View view) {
                 Context context = getActivity();
                 Toast.makeText(context, "Button 4 tapped", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
