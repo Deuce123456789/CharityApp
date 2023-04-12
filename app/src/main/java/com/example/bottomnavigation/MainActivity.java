@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // items, as indicated by the four menu IDs (R.id.navigation_first, etc.)
         // On startup, the first menu
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_first, R.id.navigation_second, R.id.navigation_third, R.id.navigation_fourth)
+                R.id.navigation_first, R.id.navigation_second, R.id.navigation_third)
                 .build();
 
         // This is the fragment as specified in the XML file
