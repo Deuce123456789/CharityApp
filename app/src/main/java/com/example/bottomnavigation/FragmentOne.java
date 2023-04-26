@@ -37,7 +37,7 @@ public class FragmentOne extends Fragment {
     void setupScreen() {
         // Since we're now in a Fragment and not an Activity, we can't just call findViewById()
         // directly. Instead, need to call root.findViewById() to to the connect XML views.
-        TextView displayedText = root.findViewById(R.id.text_one);
-        displayedText.setText("This is the first fragment.");
+//        TextView displayedText = root.findViewById(R.id.text_one);
+//        displayedText.setText("This is the first fragment.");
     }
 }

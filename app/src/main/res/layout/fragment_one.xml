@@ -30,32 +30,27 @@
             android:id="@+id/store_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:background="@null"
             android:hint=" Search"
             android:inputType="text"
-            android:layout_marginStart="35dp"
             android:textSize="35sp"
-            android:background="@null"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.cardview.widget.CardView>
 
     <GridView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/text_one"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="Hey look at me"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/store_search_wrapper" />
-    </GridView>
-
+        android:id="@+id/store_product_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_search_wrapper"
+        android:horizontalSpacing="10dp"
+        android:paddingHorizontal="10dp"
+        android:verticalSpacing="10dp"
+        tools:listitem="@layout/main_store_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
