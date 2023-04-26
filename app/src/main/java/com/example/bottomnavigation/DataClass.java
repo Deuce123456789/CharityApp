@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class DataClass {
     public Integer NumTokens;
-    public ArrayList<ItemDummy> StoreItems;
+    public ArrayList<Item> StoreItems;
     public ArrayList<Charity> CharityItems;
 
     private static DataClass instance = null;
@@ -13,6 +13,7 @@ public class DataClass {
     private DataClass() {
         // constructor
         DefineCharities();
+        DefineItems();
     }
 
     public static DataClass get_instance() {
@@ -26,5 +27,12 @@ public class DataClass {
         //salvation army declaration
         Charity SalvationArmy = new Charity("Salvation Army", "Description goes here.");
         CharityItems.add(SalvationArmy);
+    }
+
+    public void DefineItems(){
+        //define items in the store
+        Item Laptop = new Item("My Laptop Item", 999.99f, 4);
+        StoreItems.add(Laptop);
+
     }
 }
