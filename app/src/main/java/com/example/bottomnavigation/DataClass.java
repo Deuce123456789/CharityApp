@@ -12,7 +12,7 @@ public class DataClass {
         // constructor
     }
 
-    public DataClass get_instance() {
+    public static DataClass get_instance() {
         if (instance == null) {
             instance = new DataClass();
         }
