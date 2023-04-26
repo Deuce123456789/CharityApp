@@ -1,15 +1,18 @@
 package com.example.bottomnavigation;
 
+import java.sql.Savepoint;
 import java.util.ArrayList;
 
 public class DataClass {
     public Integer NumTokens;
     public ArrayList<ItemDummy> StoreItems;
+    public ArrayList<Charity> CharityItems;
 
     private static DataClass instance = null;
 
     private DataClass() {
         // constructor
+        DefineCharities();
     }
 
     public static DataClass get_instance() {
@@ -17,5 +20,15 @@ public class DataClass {
             instance = new DataClass();
         }
         return instance;
+    }
+
+    public void DefineCharities() {
+        //salvation army declaration
+        Charity SalvationArmy = new Charity();
+        SalvationArmy.name = "Salvation Army";
+        SalvationArmy.desc = "Description goes here.";
+        CharityItems.add(SalvationArmy);
+
+
     }
 }
