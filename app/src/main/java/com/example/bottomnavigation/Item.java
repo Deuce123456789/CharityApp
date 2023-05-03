@@ -1,7 +1,7 @@
 package com.example.bottomnavigation;
 
 public class Item {
-    private String name;
+    public String name;
     private Float price;
     private Integer rating;
 

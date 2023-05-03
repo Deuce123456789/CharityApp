@@ -1,12 +1,13 @@
 package com.example.bottomnavigation;
 
-import java.sql.Savepoint;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class DataClass {
     public Integer NumTokens;
     public ArrayList<Item> StoreItems;
     public ArrayList<Charity> CharityItems;
+    public ArrayList<Item> cart = new ArrayList<Item>();
 
     private static DataClass instance = null;
 
