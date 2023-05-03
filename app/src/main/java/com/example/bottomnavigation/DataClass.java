@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class DataClass {
     public Integer NumTokens;
+    public Integer tasksCompleted = 0;
     public ArrayList<Item> StoreItems;
     public ArrayList<Charity> CharityItems;
 
