@@ -4,18 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentTwo">
+    tools:context=".FragmentFour">
+
+    <Button
+        android:id="@+id/taskCompleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Task Completed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskCompleteText" />
 
     <TextView
-        android:id="@+id/text_two"
-        android:layout_width="match_parent"
+        android:id="@+id/taskCompleteText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Tasks - 1/4 Completed"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskCompleteBar" />
+
+    <ProgressBar
+        android:id="@+id/taskCompleteBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="239dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="128dp"
+        android:max="4"
+        android:progress="4"
+        android:progressTint="#159C1B"
+        android:scaleY="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
