@@ -22,17 +22,18 @@
         app:cardBackgroundColor="@color/grey">
 
         <ImageView
-            android:layout_width="30dp"
+            android:layout_width="40dp"
             android:layout_height="45dp"
+            android:paddingEnd="10dp"
             android:src="@drawable/ic_search"/>
 
         <EditText
             android:id="@+id/store_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
+            android:layout_marginStart="40dp"
             android:background="@null"
-            android:hint=" Search"
+            android:hint="Search"
             android:inputType="text"
             android:textSize="35sp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -47,10 +48,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/store_search_wrapper"
         android:horizontalSpacing="10dp"
         android:paddingHorizontal="10dp"
         android:verticalSpacing="10dp"
+        android:paddingTop="70dp"
+        android:paddingBottom="60dp"
         tools:listitem="@layout/main_store_item" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
