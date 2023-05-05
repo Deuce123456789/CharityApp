@@ -29,9 +29,8 @@ public class FragmentTwo extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentTwoBinding.inflate(inflater, container, false);
         root = binding.getRoot();
+        //Find the text, sets the variable to the text
         progressText = root.findViewById(R.id.taskCompleteText);
-
-
         setupScreen();
         return root;
     }
@@ -45,16 +44,15 @@ public class FragmentTwo extends Fragment {
     }
 
     void setupScreen() {
+        //Find the instance of data class
         this.dataClass = DataClass.get_instance();
-        System.out.println(root.toString());
-        // Since we're now in a Fragment and not an Activity, we can't just call findViewById()
-        // directly. Instead, need to call root.findViewById() to to the connect XML views.
         ProgressBar progressBar = root.findViewById(R.id.taskCompleteBar);
+
+        //Set the text and progress bar's progress on the screen when the fragment is created
         progressText.setText("Tasks - " + dataClass.tasksCompleted.toString() + "/4 Completed");
         progressBar.setProgress(dataClass.tasksCompleted);
 
-        // We can set up button onClickListeners the same way as before, the only difference
-        // is we need to use root.finViewById() since we're in a Fragment, not an Activity
+        // Add all of the button listeners to call the completeTask function
         Button buttonTask1 = root.findViewById(R.id.buttonTask1);
         buttonTask1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,23 +82,31 @@ public class FragmentTwo extends Fragment {
             }
         });
     }
+
+    //Called when a task is completed
     private void completeTask(ImageView checkBox, int taskNum, View bgView ){
+        //Checks if the task is not already done
         if (!dataClass.completedTasks.get(taskNum - 1)){
             dataClass.completedTasks.set(taskNum - 1, true);
+            //Adds tokens to the user's count
             dataClass.NumTokens += 20;
             System.out.println(dataClass.NumTokens);
             ProgressBar progressBar = root.findViewById(R.id.taskCompleteBar);
+            //Changes the checkmarks icon to the filled in version
             checkBox.setImageResource(android.R.drawable.checkbox_on_background);
+            //Changes the background of the task
             bgView.setBackgroundColor(0xFFC7FCD9);
             dataClass.tasksCompleted++;
             progressText.setText("Tasks - " + dataClass.tasksCompleted.toString() + "/4 Completed");
 
+            //Animates the progress bar going up if the android sdk version supports it
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 progressBar.setProgress(dataClass.tasksCompleted,true);
             }
             else{
                 progressBar.setProgress(dataClass.tasksCompleted);
             }
+            //Checks if all of the tasks are done
             boolean bonusTokens = true;
             for (boolean taskDone:
                  dataClass.completedTasks) {
@@ -108,6 +114,7 @@ public class FragmentTwo extends Fragment {
                     bonusTokens = false;
                 }
             }
+            //Adds 50 bonus tokens to the user if all of their tasks are completed.
             if (bonusTokens){
                 dataClass.NumTokens += 50;
                 System.out.println(dataClass.NumTokens);
