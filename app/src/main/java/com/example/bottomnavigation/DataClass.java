@@ -9,6 +9,7 @@ public class DataClass {
     public ArrayList<Boolean> completedTasks = new ArrayList<>();
     public ArrayList<Item> StoreItems = new ArrayList<>();
     public ArrayList<Charity> CharityItems = new ArrayList<>();
+    public ArrayList<Item> cart = new ArrayList<Item>();
 
     private static DataClass instance = null;
 
