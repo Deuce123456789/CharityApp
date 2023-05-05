@@ -4,10 +4,11 @@ import java.sql.Savepoint;
 import java.util.ArrayList;
 
 public class DataClass {
-    public Integer NumTokens;
+    public Integer NumTokens = 0;
     public Integer tasksCompleted = 0;
-    public ArrayList<Item> StoreItems;
-    public ArrayList<Charity> CharityItems;
+    public ArrayList<Boolean> completedTasks = new ArrayList<>();
+    public ArrayList<Item> StoreItems = new ArrayList<>();
+    public ArrayList<Charity> CharityItems = new ArrayList<>();
 
     private static DataClass instance = null;
 
@@ -15,6 +16,7 @@ public class DataClass {
         // constructor
         DefineCharities();
         DefineItems();
+        DefineCompletedTasks();
     }
 
     public static DataClass get_instance() {
@@ -35,5 +37,11 @@ public class DataClass {
         Item Laptop = new Item("My Laptop Item", 999.99f, 4);
         StoreItems.add(Laptop);
 
+    }
+    public void DefineCompletedTasks(){
+        //Fill completed tasks with empty booleans
+        for (int i = 0; i < 4; i++){
+            completedTasks.add(false);
+        }
     }
 }
