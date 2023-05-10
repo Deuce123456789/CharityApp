@@ -6,6 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".FragmentThree">
 
+    <GridView
+        android:id="@+id/charity_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="10dp"
+        android:numColumns="1"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="70dp"
+        android:paddingBottom="60dp"
+        android:verticalSpacing="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/charity_item" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/store_search_wrapper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="50dp"
+        app:contentPaddingLeft="10dp"
+        app:contentPaddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/store_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:background="@null"
+            android:hint="Search"
+            android:inputType="text"
+            android:textSize="35sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/text_three"
         android:layout_width="match_parent"
