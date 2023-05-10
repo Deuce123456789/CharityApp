@@ -75,6 +75,5 @@ public class FragmentOne extends Fragment {
             new int[]{R.id.product_image, R.id.product_name, R.id.product_price, R.id.product_rating, R.id.product_id}
         );
         products.setAdapter(adapter);
-        adapter.
     }
 }
