@@ -2,314 +2,331 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".FragmentTwo">
 
-    <TextView
-        android:id="@+id/taskCompleteText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Tasks - 1/4 Completed"
-        android:textColor="#040606"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:translationZ="1sp"
-        android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="@+id/taskCompleteBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/taskCompleteBar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/taskCompleteBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="239dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="80dp"
-        android:max="4"
-        android:progress="1"
-        android:progressTint="#159C1B"
-        android:scaleX="1.5"
-        android:scaleY="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".FragmentTwo">
 
-    <ImageView
-        android:id="@+id/checkTask1"
-        android:layout_width="55dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
-        android:background="#00323232"
-        android:backgroundTint="#008E8E8E"
-        android:src="@android:drawable/checkbox_off_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskCompleteBar"
-        tools:ignore="ImageContrastCheck" />
+            <TextView
+                android:id="@+id/textTask1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watch an ad"
+                android:textAlignment="viewStart"
+                android:textColor="#040606"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/dividerTask1"
+                app:layout_constraintStart_toEndOf="@id/checkTask1"
+                app:layout_constraintTop_toTopOf="@id/checkTask1" />
 
-    <TextView
-        android:id="@+id/textTask1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Watch an ad"
-        android:textColor="#040606"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dividerTask1"
-        app:layout_constraintStart_toEndOf="@+id/checkTask1"
-        app:layout_constraintTop_toTopOf="@+id/checkTask1" />
+            <TextView
+                android:id="@+id/textTask4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Example #2"
+                android:textAlignment="viewStart"
+                android:textColor="#040606"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/dividerTask4"
+                app:layout_constraintStart_toEndOf="@id/checkTask4"
+                app:layout_constraintTop_toTopOf="@id/checkTask4" />
 
-    <Button
-        android:id="@+id/buttonTask1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Watch ad"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonTask2"
-        app:layout_constraintStart_toStartOf="@+id/buttonTask2"
-        app:layout_constraintTop_toTopOf="@+id/checkTask1" />
+            <TextView
+                android:id="@+id/textTask3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Example"
+                android:textAlignment="viewStart"
+                android:textColor="#040606"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/dividerTask3"
+                app:layout_constraintStart_toEndOf="@id/checkTask3"
+                app:layout_constraintTop_toTopOf="@id/checkTask3" />
 
-    <TextView
-        android:id="@+id/textTaskDesc1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Watch an advertisement to generate 10 tokens"
-        app:layout_constraintStart_toStartOf="@+id/checkTask1"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask1" />
+            <TextView
+                android:id="@+id/taskCompleteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Tasks - 1/4 Completed"
+                android:textColor="#040606"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:translationZ="1sp"
+                android:typeface="sans"
+                app:layout_constraintBottom_toBottomOf="@id/taskCompleteBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/taskCompleteBar" />
 
-    <Button
-        android:id="@+id/buttonTask2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="install app"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textTask2"
-        app:layout_constraintTop_toTopOf="@+id/checkTask2" />
+            <Button
+                android:id="@+id/buttonTask3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Press Me!"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/buttonTask2"
+                app:layout_constraintStart_toStartOf="@id/buttonTask2"
+                app:layout_constraintTop_toTopOf="@id/checkTask3" />
 
-    <ImageView
-        android:id="@+id/checkTask2"
-        android:layout_width="55dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:background="#00323232"
-        android:backgroundTint="#008E8E8E"
-        android:src="@android:drawable/checkbox_off_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask1"
-        tools:ignore="ImageContrastCheck" />
+            <View
+                android:id="@+id/dividerTask1"
+                android:layout_width="385dp"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#040606"
+                android:backgroundTintMode="src_over"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask1" />
 
-    <TextView
-        android:id="@+id/textTask2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Install &quot;That Game&quot;"
-        android:textColor="#040606"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dividerTask2"
-        app:layout_constraintStart_toEndOf="@+id/checkTask2"
-        app:layout_constraintTop_toTopOf="@+id/checkTask2" />
+            <View
+                android:id="@+id/bgTask4"
+                android:layout_width="420dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="80dp"
+                android:background="#A4D6E7"
+                android:scaleY="0.9"
+                android:translationZ="-1sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask3" />
 
-    <TextView
-        android:id="@+id/textTaskDesc2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Install an app to generate 15 tokens"
-        app:layout_constraintStart_toStartOf="@+id/checkTask2"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask2" />
+            <TextView
+                android:id="@+id/textTaskDesc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Install an app to generate 15 tokens"
+                app:layout_constraintStart_toStartOf="@id/checkTask2"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask2" />
 
-    <ImageView
-        android:id="@+id/checkTask3"
-        android:layout_width="55dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:background="#00323232"
-        android:backgroundTint="#008E8E8E"
-        android:src="@android:drawable/checkbox_off_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask2"
-        tools:ignore="ImageContrastCheck" />
+            <TextView
+                android:id="@+id/textTaskDesc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Do a different thing"
+                app:layout_constraintStart_toStartOf="@id/checkTask4"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask4" />
 
-    <TextView
-        android:id="@+id/textTask3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Example"
-        android:textColor="#040606"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dividerTask3"
-        app:layout_constraintStart_toEndOf="@+id/checkTask3"
-        app:layout_constraintTop_toTopOf="@+id/checkTask3" />
+            <View
+                android:id="@+id/dividerTask2"
+                android:layout_width="385dp"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#040606"
+                android:backgroundTintMode="src_over"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask2" />
 
-    <TextView
-        android:id="@+id/textTaskDesc3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Do something"
-        app:layout_constraintStart_toStartOf="@+id/checkTask3"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask3" />
+            <ImageView
+                android:id="@+id/checkTask4"
+                android:layout_width="55dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:background="#00323232"
+                android:backgroundTint="#008E8E8E"
+                android:src="@android:drawable/checkbox_off_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask3"
+                tools:ignore="ImageContrastCheck" />
 
-    <Button
-        android:id="@+id/buttonTask3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Press Me!"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonTask2"
-        app:layout_constraintStart_toStartOf="@+id/buttonTask2"
-        app:layout_constraintTop_toTopOf="@+id/checkTask3" />
+            <ImageView
+                android:id="@+id/checkTask1"
+                android:layout_width="55dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="64dp"
+                android:background="#00323232"
+                android:backgroundTint="#008E8E8E"
+                android:src="@android:drawable/checkbox_off_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taskCompleteBar"
+                tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/checkTask4"
-        android:layout_width="55dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:background="#00323232"
-        android:backgroundTint="#008E8E8E"
-        android:src="@android:drawable/checkbox_off_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask3"
-        tools:ignore="ImageContrastCheck" />
+            <View
+                android:id="@+id/bgTask3"
+                android:layout_width="420dp"
+                android:layout_height="110dp"
+                android:background="#A4D6E7"
+                android:scaleY="0.9"
+                android:translationZ="-1sp"
+                app:layout_constraintBottom_toTopOf="@id/textTask4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask2" />
 
-    <TextView
-        android:id="@+id/textTask4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Example #2"
-        android:textColor="#040606"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dividerTask4"
-        app:layout_constraintStart_toEndOf="@+id/checkTask4"
-        app:layout_constraintTop_toTopOf="@+id/checkTask4" />
+            <TextView
+                android:id="@+id/textTaskDesc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Watch an advertisement to generate 10 tokens"
+                app:layout_constraintStart_toStartOf="@id/checkTask1"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask1" />
 
-    <TextView
-        android:id="@+id/textTaskDesc4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Do a different thing"
-        app:layout_constraintStart_toStartOf="@+id/checkTask4"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask4" />
+            <Button
+                android:id="@+id/buttonTask1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Watch ad"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/buttonTask2"
+                app:layout_constraintStart_toStartOf="@id/buttonTask2"
+                app:layout_constraintTop_toTopOf="@id/checkTask1" />
 
-    <Button
-        android:id="@+id/buttonTask4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="No, Press Me!"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonTask2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonTask2"
-        app:layout_constraintTop_toTopOf="@+id/checkTask4" />
+            <TextView
+                android:id="@+id/textTask2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Install &quot;That Game&quot;"
+                android:textAlignment="viewStart"
+                android:textColor="#040606"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/dividerTask2"
+                app:layout_constraintStart_toEndOf="@id/checkTask2"
+                app:layout_constraintTop_toTopOf="@id/checkTask2" />
 
-    <View
-        android:id="@+id/dividerTask1"
-        android:layout_width="385dp"
-        android:layout_height="5dp"
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="#040606"
-        android:backgroundTintMode="src_over"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask1" />
+            <ImageView
+                android:id="@+id/checkTask3"
+                android:layout_width="55dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:background="#00323232"
+                android:backgroundTint="#008E8E8E"
+                android:src="@android:drawable/checkbox_off_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask2"
+                tools:ignore="ImageContrastCheck" />
 
-    <View
-        android:id="@+id/dividerTask2"
-        android:layout_width="385dp"
-        android:layout_height="5dp"
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="#040606"
-        android:backgroundTintMode="src_over"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask2" />
+            <Button
+                android:id="@+id/buttonTask2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="install app"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textTask2"
+                app:layout_constraintTop_toTopOf="@id/checkTask2" />
 
-    <View
-        android:id="@+id/dividerTask3"
-        android:layout_width="385dp"
-        android:layout_height="5dp"
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="#040606"
-        android:backgroundTintMode="src_over"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask3" />
+            <View
+                android:id="@+id/dividerTask3"
+                android:layout_width="385dp"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#040606"
+                android:backgroundTintMode="src_over"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask3" />
 
-    <View
-        android:id="@+id/dividerTask4"
-        android:layout_width="385dp"
-        android:layout_height="5dp"
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="#040606"
-        android:backgroundTintMode="src_over"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTask4" />
+            <View
+                android:id="@+id/bgTask2"
+                android:layout_width="420dp"
+                android:layout_height="110dp"
+                android:background="#A4D6E7"
+                android:scaleY="0.9"
+                android:translationZ="-1sp"
+                app:layout_constraintBottom_toTopOf="@id/textTask3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask1" />
 
-    <View
-        android:id="@+id/bgTask1"
-        android:layout_width="420dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="64dp"
-        android:background="#A3D5E6"
-        android:scaleY="0.9"
-        android:translationZ="-1sp"
-        app:layout_constraintBottom_toTopOf="@+id/textTask2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskCompleteBar" />
+            <ImageView
+                android:id="@+id/checkTask2"
+                android:layout_width="55dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:background="#00323232"
+                android:backgroundTint="#008E8E8E"
+                android:src="@android:drawable/checkbox_off_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask1"
+                tools:ignore="ImageContrastCheck" />
 
-    <View
-        android:id="@+id/bgTask2"
-        android:layout_width="420dp"
-        android:layout_height="110dp"
-        android:background="#A4D6E7"
-        android:scaleY="0.9"
-        android:translationZ="-1sp"
-        app:layout_constraintBottom_toTopOf="@+id/textTask3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask1" />
+            <View
+                android:id="@+id/dividerTask4"
+                android:layout_width="385dp"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#040606"
+                android:backgroundTintMode="src_over"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkTask4" />
 
-    <View
-        android:id="@+id/bgTask3"
-        android:layout_width="420dp"
-        android:layout_height="110dp"
-        android:background="#A4D6E7"
-        android:scaleY="0.9"
-        android:translationZ="-1sp"
-        app:layout_constraintBottom_toTopOf="@+id/textTask4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask2" />
+            <TextView
+                android:id="@+id/textTaskDesc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Do something"
+                app:layout_constraintStart_toStartOf="@id/checkTask3"
+                app:layout_constraintTop_toBottomOf="@id/dividerTask3" />
 
-    <View
-        android:id="@+id/bgTask4"
-        android:layout_width="420dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="64dp"
-        android:background="#A4D6E7"
-        android:scaleY="0.9"
-        android:translationZ="-1sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dividerTask3" />
+            <ProgressBar
+                android:id="@+id/taskCompleteBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="239dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="80dp"
+                android:max="4"
+                android:progress="1"
+                android:progressTint="#159C1B"
+                android:scaleX="1.5"
+                android:scaleY="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/bgTask1"
+                android:layout_width="420dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="24dp"
+                android:background="#A3D5E6"
+                android:scaleY="0.9"
+                android:translationZ="-1sp"
+                app:layout_constraintBottom_toTopOf="@id/textTask2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taskCompleteBar" />
+
+            <Button
+                android:id="@+id/buttonTask4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="No, Press Me!"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/buttonTask2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/buttonTask2"
+                app:layout_constraintTop_toTopOf="@id/checkTask4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

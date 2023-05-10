@@ -1,5 +1,7 @@
 package com.example.bottomnavigation;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,39 +54,71 @@ public class FragmentTwo extends Fragment {
         progressText.setText("Tasks - " + dataClass.tasksCompleted.toString() + "/4 Completed");
         progressBar.setProgress(dataClass.tasksCompleted);
 
+        //Sets up the screen every time the fragment gets switched to
+        if (dataClass.completedTasks.get(0)) {
+            ImageView checkBox = root.findViewById(R.id.checkTask1);
+            checkBox.setImageResource(android.R.drawable.checkbox_on_background);
+            root.findViewById(R.id.bgTask1).setBackgroundColor(0xFFC7FCD9);
+            root.findViewById(R.id.buttonTask1).setBackgroundColor(Color.parseColor("#808080"));
+            root.findViewById(R.id.buttonTask1).setClickable(false);
+        }
+        if (dataClass.completedTasks.get(1)) {
+            ImageView checkBox = root.findViewById(R.id.checkTask2);
+            checkBox.setImageResource(android.R.drawable.checkbox_on_background);
+            root.findViewById(R.id.bgTask2).setBackgroundColor(0xFFC7FCD9);
+            root.findViewById(R.id.buttonTask2).setBackgroundColor(Color.parseColor("#808080"));
+            root.findViewById(R.id.buttonTask2).setClickable(false);
+        }
+        if (dataClass.completedTasks.get(2)) {
+            ImageView checkBox = root.findViewById(R.id.checkTask3);
+            checkBox.setImageResource(android.R.drawable.checkbox_on_background);
+            root.findViewById(R.id.bgTask3).setBackgroundColor(0xFFC7FCD9);
+            root.findViewById(R.id.buttonTask3).setBackgroundColor(Color.parseColor("#808080"));
+            root.findViewById(R.id.buttonTask3).setClickable(false);
+        }
+        if (dataClass.completedTasks.get(3)) {
+            ImageView checkBox = root.findViewById(R.id.checkTask4);
+            checkBox.setImageResource(android.R.drawable.checkbox_on_background);
+            root.findViewById(R.id.bgTask4).setBackgroundColor(0xFFC7FCD9);
+            root.findViewById(R.id.buttonTask4).setBackgroundColor(Color.parseColor("#808080"));
+            root.findViewById(R.id.buttonTask4).setClickable(false);
+        }
+
+
+
         // Add all of the button listeners to call the completeTask function
         Button buttonTask1 = root.findViewById(R.id.buttonTask1);
         buttonTask1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                completeTask(root.findViewById(R.id.checkTask1),1, root.findViewById(R.id.bgTask1));
+                completeTask(root.findViewById(R.id.checkTask1),1, root.findViewById(R.id.bgTask1), root.findViewById(R.id.buttonTask1));
             }
         });
         Button buttonTask2 = root.findViewById(R.id.buttonTask2);
         buttonTask2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                completeTask(root.findViewById(R.id.checkTask2),2, root.findViewById(R.id.bgTask2));
+                completeTask(root.findViewById(R.id.checkTask2),2, root.findViewById(R.id.bgTask2), root.findViewById(R.id.buttonTask2));
             }
         });
         Button buttonTask3 = root.findViewById(R.id.buttonTask3);
         buttonTask3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                completeTask(root.findViewById(R.id.checkTask3),3, root.findViewById(R.id.bgTask3));
+                completeTask(root.findViewById(R.id.checkTask3),3, root.findViewById(R.id.bgTask3), root.findViewById(R.id.buttonTask3));
             }
         });
         Button buttonTask4 = root.findViewById(R.id.buttonTask4);
         buttonTask4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                completeTask(root.findViewById(R.id.checkTask4),4, root.findViewById(R.id.bgTask4));
+                completeTask(root.findViewById(R.id.checkTask4),4, root.findViewById(R.id.bgTask4), root.findViewById(R.id.buttonTask4));
             }
         });
     }
 
     //Called when a task is completed
-    private void completeTask(ImageView checkBox, int taskNum, View bgView ){
+    private void completeTask(ImageView checkBox, int taskNum, View bgView, Button btn){
         //Checks if the task is not already done
         if (!dataClass.completedTasks.get(taskNum - 1)){
             dataClass.completedTasks.set(taskNum - 1, true);
@@ -98,6 +132,9 @@ public class FragmentTwo extends Fragment {
             bgView.setBackgroundColor(0xFFC7FCD9);
             dataClass.tasksCompleted++;
             progressText.setText("Tasks - " + dataClass.tasksCompleted.toString() + "/4 Completed");
+
+            btn.setBackgroundColor(Color.parseColor("#808080"));
+            btn.setClickable(false);
 
             //Animates the progress bar going up if the android sdk version supports it
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
