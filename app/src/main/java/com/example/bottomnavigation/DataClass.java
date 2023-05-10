@@ -9,7 +9,7 @@ public class DataClass {
     public ArrayList<Boolean> completedTasks = new ArrayList<>();
     public ArrayList<Item> StoreItems = new ArrayList<>();
     public ArrayList<Charity> CharityItems = new ArrayList<>();
-    public ArrayList<Item> cart = new ArrayList<Item>();
+    public ArrayList<Item> cart = new ArrayList<>();
 
     private static DataClass instance = null;
 
@@ -35,8 +35,12 @@ public class DataClass {
 
     public void DefineItems(){
         //define items in the store
-        Item Laptop = new Item("My Laptop Item", 999.99f, 4);
-        StoreItems.add(Laptop);
+        StoreItems.add(new Item("My Laptop Item", 999.99f, 4));
+        StoreItems.add(new Item("Other Thing", 50f, 2));
+        StoreItems.add(new Item("Memes", 420.69f, 5));
+        StoreItems.add(new Item("Some Item Variety", 1234567.89f, 0));
+        StoreItems.add(new Item("Other Thing", 50f, 2));
+        StoreItems.add(new Item("Memes", 420.69f, 5));
 
     }
     public void DefineCompletedTasks(){

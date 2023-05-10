@@ -23,7 +23,7 @@
         android:textColor="@color/black"
         android:text="Product McThingy"
         android:textStyle="bold"
-        android:textSize="17dp"/>
+        android:textSize="17sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,12 +52,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="2dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:backgroundTint="#FFA53A"
             android:textColor="@color/black"
             android:text="Buy"
             android:textAllCaps="false"
             />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/product_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 
 </android.widget.LinearLayout>

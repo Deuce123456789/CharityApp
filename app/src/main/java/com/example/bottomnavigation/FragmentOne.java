@@ -21,12 +21,14 @@ public class FragmentOne extends Fragment {
     //This is a test
     private FragmentOneBinding binding;
     private View root;
+    private DataClass dataClass;
 
     // This function is called when this fragment's view is first created
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentOneBinding.inflate(inflater, container, false);
         root = binding.getRoot();
+        dataClass = DataClass.get_instance();
 
         setupScreen();
         return root;
@@ -44,12 +46,14 @@ public class FragmentOne extends Fragment {
         return new String(new char[reps]).replace("\0",base);
     }
 
-    HashMap<String, Object> genProduct(int img, String name, double price, int rating) {
+    HashMap<String, Object> genProduct(int img, String name, double price, int rating, int id) {
         String stars = repeat("★", rating) + repeat("☆", 5-rating);
-        Item itm = new Item(name, (float)price, rating);
         return new HashMap<String, Object>() {{
             put("img", img);
-            put("itm", itm);
+            put("name", name);
+            put("price", String.format("%.2f", price));
+            put("stars", stars);
+            put("id", id);
         }};
     }
 
@@ -60,18 +64,17 @@ public class FragmentOne extends Fragment {
 
         // one list entry for each product to display
         ArrayList<HashMap<String,Object>> test = new ArrayList<HashMap<String,Object>>() {{
-            for (int i=0; i<5; i++){
-                add(genProduct(R.drawable.ic_star_1, "Product", 69.99, 3));
-                add(genProduct(R.drawable.ic_dashboard_black_24dp, "Other Thingy", 547.28, 4));
-                add(genProduct(R.drawable.ic_notifications_black_24dp, "Whee", 23048.77, 0));
+            for (Item itm : dataClass.StoreItems) {
+                add(genProduct(R.drawable.ic_star_1, itm.name, itm.price, itm.rating, itm.id));
             }
         }};
         BaseAdapter adapter = new SimpleAdapter(
             root.getContext(), test,
             R.layout.main_store_item,
-            new String[]{"img"},
-            new int[]{R.id.product_image}
+            new String[]{"img", "name", "price", "stars", "id"},
+            new int[]{R.id.product_image, R.id.product_name, R.id.product_price, R.id.product_rating, R.id.product_id}
         );
         products.setAdapter(adapter);
+        adapter.
     }
 }
