@@ -1,11 +1,15 @@
 package com.example.bottomnavigation;
 
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
@@ -16,12 +20,17 @@ import com.example.bottomnavigation.databinding.FragmentOneBinding;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class FragmentOne extends Fragment {
     //This is a test
     private FragmentOneBinding binding;
     private View root;
     private DataClass dataClass;
+    private ItemAdapter itemAdapter;
+    private ArrayList<HashMap<String,?>> items;
 
     // This function is called when this fragment's view is first created
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,6 +40,7 @@ public class FragmentOne extends Fragment {
         dataClass = DataClass.get_instance();
 
         setupScreen();
+
         return root;
     }
 
@@ -57,23 +67,55 @@ public class FragmentOne extends Fragment {
         }};
     }
 
+    ArrayList<HashMap<String,?>> genProducts(List<Item> itms) {
+        return new ArrayList<HashMap<String,?>>() {{
+            for (Item itm : itms) {
+                add(genProduct(R.drawable.ic_star_1, itm.name, itm.price, itm.rating, itm.id));
+            }
+        }};
+    }
+
+    void filterItems(CharSequence query) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            String qlower = query.toString().toLowerCase(Locale.ROOT);
+            List<Item> results = dataClass.StoreItems.stream()
+                .filter(i->i.name.toLowerCase(Locale.ROOT).contains(qlower))
+                .collect(Collectors.toList());
+            items.clear();
+            items.addAll(genProducts(results));
+            itemAdapter.notifyDataSetChanged();
+            System.out.println("hfljhsfdlg");
+        }
+    }
+
     void setupScreen() {
         // Since we're now in a Fragment and not an Activity, we can't just call findViewById()
         // directly. Instead, need to call root.findViewById() to to the connect XML views.
         GridView products = root.findViewById(R.id.store_product_grid);
+        EditText searchbar = root.findViewById(R.id.store_search);
 
-        // one list entry for each product to display
-        ArrayList<HashMap<String,Object>> test = new ArrayList<HashMap<String,Object>>() {{
-            for (Item itm : dataClass.StoreItems) {
-                add(genProduct(R.drawable.ic_star_1, itm.name, itm.price, itm.rating, itm.id));
-            }
-        }};
-        BaseAdapter adapter = new ItemAdapter(
-            root.getContext(), test,
+        // one hashmap for each product to display
+        items = genProducts(dataClass.StoreItems);
+        itemAdapter = new ItemAdapter(
+            root.getContext(), items,
             R.layout.main_store_item,
             new String[]{"img", "name", "price", "stars", "id"},
             new int[]{R.id.product_image, R.id.product_name, R.id.product_price, R.id.product_rating, R.id.product_id}
         );
-        products.setAdapter(adapter);
+        products.setAdapter(itemAdapter);
+
+        searchbar.addTextChangedListener(new TextWatcher() {
+            // Irrelevant unused functions
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void afterTextChanged(Editable s) {}
+
+            // The real one
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filterItems(s);
+            }
+        });
     }
 }
