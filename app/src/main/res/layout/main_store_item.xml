@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/grey_border"
-    android:padding="10dp"
-    tools:context=".StoreItem">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/product_image"

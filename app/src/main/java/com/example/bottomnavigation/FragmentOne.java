@@ -68,7 +68,7 @@ public class FragmentOne extends Fragment {
                 add(genProduct(R.drawable.ic_star_1, itm.name, itm.price, itm.rating, itm.id));
             }
         }};
-        BaseAdapter adapter = new SimpleAdapter(
+        BaseAdapter adapter = new ItemAdapter(
             root.getContext(), test,
             R.layout.main_store_item,
             new String[]{"img", "name", "price", "stars", "id"},
