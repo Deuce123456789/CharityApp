@@ -85,7 +85,6 @@ public class FragmentOne extends Fragment {
             items.clear();
             items.addAll(genProducts(results));
             itemAdapter.notifyDataSetChanged();
-            System.out.println("hfljhsfdlg");
         }
     }
 

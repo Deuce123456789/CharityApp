@@ -3,14 +3,18 @@ package com.example.bottomnavigation;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,10 +22,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.bottomnavigation.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    static FragmentContainerView cart, nav;
 
     // This function is created when this screen (MainActivity) is first created and started
     @Override
@@ -32,7 +38,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setupActionBar();
+        setupBottomNav();
 
+        cart = findViewById(R.id.cart_page);
+        nav = findViewById(R.id.nav_host_fragment_activity_main);
+        setCartVisible(true);
+
+        BottomNavigationView bnv = findViewById(R.id.nav_view);
+        bnv.setOnItemSelectedListener(item -> {
+            setCartVisible(false);
+            return false;
+        });
+    }
+
+    void setupBottomNav() {
         // This is the nav_view "container" as laid out in the XML file
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -66,7 +85,20 @@ public class MainActivity extends AppCompatActivity {
         TextView tokens = abView.findViewById(R.id.token_counter);
         DataClass.get_instance().NumTokens.observe(this,
                 i -> tokens.setText("tokens: "+Integer.toString(i)));
+        ImageView cart_icon = abView.findViewById(R.id.cart_icon);
+        cart_icon.setOnClickListener(v->setCartVisible(true));
+
 
         actionBar.setCustomView(abView, layoutParams);
+    }
+
+    void setCartVisible(boolean visible) {
+        if (visible) {
+            cart.setVisibility(View.VISIBLE);
+            nav.setVisibility(View.GONE);
+        } else {
+            cart.setVisibility(View.GONE);
+            nav.setVisibility(View.VISIBLE);
+        }
     }
 }

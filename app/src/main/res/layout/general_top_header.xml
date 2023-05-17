@@ -32,6 +32,7 @@
         android:textAlignment="center"/>
 
     <ImageView
+        android:id="@+id/cart_icon"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_home_black_24dp"
