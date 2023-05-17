@@ -1,10 +1,12 @@
 package com.example.bottomnavigation;
 
+import androidx.lifecycle.MutableLiveData;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 public class DataClass {
-    public Integer NumTokens = 0;
+    public MutableLiveData<Integer> NumTokens = new MutableLiveData<>(0);
     public Integer tasksCompleted = 0;
     public ArrayList<Boolean> completedTasks = new ArrayList<>();
     public ArrayList<Item> StoreItems = new ArrayList<>();

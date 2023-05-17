@@ -1,10 +1,17 @@
 package com.example.bottomnavigation;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setupActionBar();
+
         // This is the nav_view "container" as laid out in the XML file
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -42,4 +51,22 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+
+    void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
+                ActionBar.LayoutParams.MATCH_PARENT,
+                ActionBar.LayoutParams.MATCH_PARENT,
+                Gravity.CENTER);
+
+        View abView = getLayoutInflater().inflate(R.layout.general_top_header, null);
+        TextView tokens = abView.findViewById(R.id.token_counter);
+        DataClass.get_instance().NumTokens.observe(this,
+                i -> tokens.setText("tokens: "+Integer.toString(i)));
+
+        actionBar.setCustomView(abView, layoutParams);
+    }
 }
