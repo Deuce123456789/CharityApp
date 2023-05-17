@@ -5,8 +5,7 @@
     android:layout_height="65dp"
     android:background="@drawable/grey_border"
     android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".StoreItem">
+    android:padding="10dp">
 
 
     <LinearLayout
@@ -28,7 +27,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/product_buy_button"
+            android:id="@+id/donate_button"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="250px"
@@ -38,6 +37,11 @@
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/charity_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
     </LinearLayout>
 
 </android.widget.LinearLayout>

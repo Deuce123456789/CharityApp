@@ -29,8 +29,10 @@ public class DataClass {
 
     public void DefineCharities() {
         //salvation army declaration
-        Charity SalvationArmy = new Charity("Salvation Army", "Description goes here.");
-        CharityItems.add(SalvationArmy);
+
+        CharityItems.add(new Charity("Salvation Army", "Description goes here."));
+        CharityItems.add(new Charity("Salvation Army2", "Description goes here."));
+        CharityItems.add(new Charity("Salvation Army3", "Description goes here."));
     }
 
     public void DefineItems(){
