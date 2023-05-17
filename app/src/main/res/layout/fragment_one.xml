@@ -52,6 +52,7 @@
         android:paddingHorizontal="10dp"
         android:verticalSpacing="10dp"
         android:paddingTop="10dp"
+        android:paddingBottom="120dp"
         tools:listitem="@layout/main_store_item" />
 
 

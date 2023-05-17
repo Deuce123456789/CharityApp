@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:gravity="center_vertical"
+    android:background="@color/blue_top">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="CharStore"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/token_counter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="tokens: 23457"
+        android:layout_weight="1"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_home_black_24dp"
+        app:tint="@color/white"
+        android:layout_weight="1"/>
+</LinearLayout>
