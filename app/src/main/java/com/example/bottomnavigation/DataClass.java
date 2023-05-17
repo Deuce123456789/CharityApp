@@ -9,9 +9,11 @@ public class DataClass {
     public MutableLiveData<Integer> NumTokens = new MutableLiveData<>(0);
     public Integer tasksCompleted = 0;
     public ArrayList<Boolean> completedTasks = new ArrayList<>();
+    public ArrayList<Task> tasks = new ArrayList<>();
     public ArrayList<Item> StoreItems = new ArrayList<>();
     public ArrayList<Charity> CharityItems = new ArrayList<>();
     public ArrayList<Item> cart = new ArrayList<>();
+
 
     private static DataClass instance = null;
 
@@ -48,6 +50,7 @@ public class DataClass {
 
     }
     public void DefineCompletedTasks(){
+        tasks.add(new Task("Do something",10, "Does some stuff that works?"));
         //Fill completed tasks with empty booleans
         for (int i = 0; i < 4; i++){
             completedTasks.add(false);
