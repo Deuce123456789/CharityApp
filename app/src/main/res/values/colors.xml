@@ -10,5 +10,7 @@
     <color name="grey">#FFD9D9D9</color>
     <color name="blue_top">#FF576CBC</color>
     <color name="blue_btm">#FF0B2447</color>
+    <color name="lightest_grey">#eeeeee</color>
+    <color name="button_orange">#FFA53A</color>
 
 </resources>

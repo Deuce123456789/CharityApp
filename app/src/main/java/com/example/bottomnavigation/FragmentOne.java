@@ -62,7 +62,7 @@ public class FragmentOne extends Fragment {
         return new HashMap<String, Object>() {{
             put("img", img);
             put("name", name);
-            put("price", String.format("%.2f", price));
+            put("price", String.format("$%.2f", price));
             put("stars", stars);
             put("id", id);
         }};

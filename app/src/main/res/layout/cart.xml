@@ -3,42 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="60dp"
+    android:padding="10dp">
 
-    <HorizontalScrollView
+    <GridView
+        android:id="@+id/cart_grid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:numColumns="1"
+        tools:listitem="@layout/cart_item"
+        android:background="@color/lightest_grey"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:alpha="255"
-            android:orientation="vertical"
-            android:visibility="visible"
-            tools:visibility="visible">
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cart_grid"
+        android:layout_marginVertical="30dp"
+        android:text="Purchase All"
+        android:textSize="30sp"
+        android:layout_weight="0"
+        android:backgroundTint="@color/button_orange"
+        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="250dp"
-                android:text="@string/test" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="250dp"
-                android:text="@string/test" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
+    <TextView
+        android:id="@+id/tokens_gained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buy_button"
+        android:text="+3483458 Tokens"
+        android:textSize="28sp"
+        android:textColor="#76ff6a"
+        android:textStyle="bold"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

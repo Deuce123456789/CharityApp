@@ -43,7 +43,7 @@
                 android:id="@+id/product_rating"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:textColor="#FFB800"
+                android:textColor="@color/button_orange"
                 android:text="☆☆☆☆☆"/>
         </LinearLayout>
         <Button

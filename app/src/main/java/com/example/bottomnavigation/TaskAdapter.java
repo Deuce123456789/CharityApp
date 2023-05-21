@@ -60,7 +60,7 @@ public class TaskAdapter extends SimpleAdapter {
         if (!dataClass.completedTasks.get(taskNum - 1)){
             dataClass.completedTasks.set(taskNum - 1, true);
             //Adds tokens to the user's count
-            dataClass.NumTokens += 20;
+            dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+20);
             System.out.println(dataClass.NumTokens);
             ProgressBar progressBar = root.findViewById(R.id.taskCompleteBar);
             //Changes the checkmarks icon to the filled in version
@@ -90,7 +90,7 @@ public class TaskAdapter extends SimpleAdapter {
             }
             //Adds 50 bonus tokens to the user if all of their tasks are completed.
             if (bonusTokens){
-                dataClass.NumTokens += 50;
+                dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+50);
                 System.out.println(dataClass.NumTokens);
             }
         }

@@ -14,10 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -42,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         cart = findViewById(R.id.cart_page);
         nav = findViewById(R.id.nav_host_fragment_activity_main);
-        setCartVisible(true);
 
         BottomNavigationView bnv = findViewById(R.id.nav_view);
         bnv.setOnItemSelectedListener(item -> {
+            Navigation.findNavController(nav).navigate(item.getItemId());
             setCartVisible(false);
-            return false;
+            return true;
         });
     }
 
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         if (visible) {
             cart.setVisibility(View.VISIBLE);
             nav.setVisibility(View.GONE);
+            ((CartFragment)cart.getFragment()).onCartUpdate();
         } else {
             cart.setVisibility(View.GONE);
             nav.setVisibility(View.VISIBLE);
