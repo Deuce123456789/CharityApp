@@ -51,8 +51,14 @@ public class DataClass {
     }
     public void DefineCompletedTasks(){
         tasks.add(new Task("Do something",10, "Does some stuff that works?"));
+        tasks.add(new Task("sdfg",10, "Does some stuff that works?"));
+        tasks.add(new Task("sdfgdsgf",10, "Does some stuff that works?"));
+        tasks.add(new Task("Dsdfg",10, "Does some stuff that works?"));
+        tasks.add(new Task("erg",10, "Does some stuff that works?"));
+        tasks.add(new Task("qwerghg",10, "Does some stuff that works?"));
+        tasks.add(new Task("qwergd",10, "Does some stuff that works?"));
         //Fill completed tasks with empty booleans
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < tasks.size(); i++){
             completedTasks.add(false);
         }
     }

@@ -1,5 +1,6 @@
 package com.example.bottomnavigation;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
@@ -25,18 +26,24 @@ public class TaskAdapter extends SimpleAdapter {
         super(context, data, resource, from, to);
     }
 
-    View root;
     TextView progressText;
+    ProgressBar progressBar;
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        root = super.getView(position, convertView, parent);
+        View root = super.getView(position, convertView, parent);
 
         // Find the button and the ID
-        Button buy_button = root.findViewById(R.id.product_buy_button);
-        TextView id_text = root.findViewById(R.id.product_id);
-        progressText = root.findViewById(R.id.taskCompleteText);
+        Button buy_button = root.findViewById(R.id.task_btn);
+        TextView id_text = root.findViewById(R.id.task_id);
+        ImageView check_box = root.findViewById(R.id.task_check);
+        View background = root.findViewById(R.id.task_bg);
+        progressBar = ((View) parent.getParent()).findViewById(R.id.taskCompleteBar);
+        progressText = ((View) parent.getParent()).findViewById(R.id.taskCompleteText);
         String string_id = (String) id_text.getText();
-        int id = Integer.valueOf(string_id);
+        int id = Integer.parseInt(string_id);
+
+        updateTaskBar();
 
         // Find the item that this view refers to
         Task task;
@@ -47,39 +54,61 @@ public class TaskAdapter extends SimpleAdapter {
                 .get(0);
         } else task = null;
 
+        int task_idx = dataClass.tasks.indexOf(task);
+        markCompleted(check_box, background, buy_button, dataClass.completedTasks.get(task_idx));
+
         // Set a listener that adds the item to the cart and says so
         buy_button.setOnClickListener((v)->{
-            completeTask(null,task.id,null,null);
+            completeTask(check_box,task_idx,background,buy_button,task);
         });
 
         // Required for parity with base SimpleAdapter
         return root;
     }
-    private void completeTask(ImageView checkBox, int taskNum, View bgView, Button btn){
+
+    @SuppressLint("ResourceAsColor")
+    private void markCompleted(ImageView checkBox, View bgView, Button btn, boolean completed) {
+        //Changes the checkmarks icon to the filled in version
+        checkBox.setImageResource(completed
+                ?R.drawable.checkbox_on
+                :R.drawable.checkbox_off);
+        //Changes the background of the task
+        bgView.setBackgroundColor(Color.parseColor(completed
+                ?"#C7FCD9"
+                :"#D9D9D9"));
+        //Changes the button to be unclickable/greyed-out
+        btn.setBackgroundColor(Color.parseColor(completed
+                ?"#808080"
+                :"#FFA53A"));
+        btn.setClickable(!completed);
+    }
+
+    private void updateTaskBar() {
+        progressText.setText(
+                "Tasks - " + dataClass.tasksCompleted
+                        + "/" +dataClass.tasks.size()+" Completed");
+        progressBar.setMax(dataClass.tasks.size());
+        //Animates the progress bar going up if the android sdk version supports it
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            progressBar.setProgress(dataClass.tasksCompleted,true);
+        }
+        else{
+            progressBar.setProgress(dataClass.tasksCompleted);
+        }
+    }
+
+    private void completeTask(ImageView checkBox, int taskNum, View bgView, Button btn, Task task){
         //Checks if the task is not already done
-        if (!dataClass.completedTasks.get(taskNum - 1)){
-            dataClass.completedTasks.set(taskNum - 1, true);
+        if (!dataClass.completedTasks.get(taskNum)){
+            dataClass.completedTasks.set(taskNum, true);
             //Adds tokens to the user's count
-            dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+20);
-            System.out.println(dataClass.NumTokens);
-            ProgressBar progressBar = root.findViewById(R.id.taskCompleteBar);
-            //Changes the checkmarks icon to the filled in version
-            checkBox.setImageResource(android.R.drawable.checkbox_on_background);
-            //Changes the background of the task
-            bgView.setBackgroundColor(0xFFC7FCD9);
+            dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+task.tokens);
+
             dataClass.tasksCompleted++;
-            progressText.setText("Tasks - " + dataClass.tasksCompleted.toString() + "/4 Completed");
+            updateTaskBar();
 
-            btn.setBackgroundColor(Color.parseColor("#808080"));
-            btn.setClickable(false);
+            markCompleted(checkBox, bgView, btn, true);
 
-            //Animates the progress bar going up if the android sdk version supports it
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                progressBar.setProgress(dataClass.tasksCompleted,true);
-            }
-            else{
-                progressBar.setProgress(dataClass.tasksCompleted);
-            }
             //Checks if all of the tasks are done
             boolean bonusTokens = true;
             for (boolean taskDone:
@@ -88,10 +117,10 @@ public class TaskAdapter extends SimpleAdapter {
                     bonusTokens = false;
                 }
             }
-            //Adds 50 bonus tokens to the user if all of their tasks are completed.
+            //Adds some bonus tokens to the user if all of their tasks are completed.
             if (bonusTokens){
-                dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+50);
-                System.out.println(dataClass.NumTokens);
+                dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+100);
+                Toast.makeText(bgView.getContext(), "Here's 100 bonus tokens for completing all of the tasks!", Toast.LENGTH_LONG).show();
             }
         }
     }

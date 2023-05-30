@@ -58,7 +58,7 @@ public class FragmentTwo extends Fragment {
     HashMap<String, Object> genProduct(String name, Integer tokens, String description, int id) {
         return new HashMap<String, Object>() {{
             put("name", name);
-            put("tokens", String.format("%.2f", tokens));
+            put("tokens", tokens);
             put("description", description);
             put("id", id);
         }};
@@ -93,7 +93,7 @@ public class FragmentTwo extends Fragment {
         tasks = genProducts(dataClass.tasks);
         taskAdapter = new TaskAdapter(
                 root.getContext(), tasks,
-                R.layout.main_store_item,
+                R.layout.task,
                 new String[]{"name", "tokens", "description", "id"},
                 new int[]{R.id.task_name, R.id.task_tokens, R.id.task_description, R.id.task_id}
         );
