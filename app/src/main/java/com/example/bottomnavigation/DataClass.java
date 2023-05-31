@@ -41,12 +41,12 @@ public class DataClass {
 
     public void DefineItems(){
         //define items in the store
-        StoreItems.add(new Item("My Laptop Item", 999.99f, 4));
-        StoreItems.add(new Item("Other Thing", 50f, 2));
-        StoreItems.add(new Item("Memes", 420.69f, 5));
-        StoreItems.add(new Item("Some Item Variety", 1234567.89f, 0));
-        StoreItems.add(new Item("Other Thing", 50f, 2));
-        StoreItems.add(new Item("Memes", 420.69f, 5));
+        StoreItems.add(new Item("My Laptop Item", 999.99f, 4, 69));
+        StoreItems.add(new Item("Other Thing", 50f, 2, 420));
+        StoreItems.add(new Item("Memes", 420.69f, 5, 69420));
+        StoreItems.add(new Item("Some Item Variety", 1234567.89f, 0, 3245));
+        StoreItems.add(new Item("Other Thing", 50f, 2,1234567890));
+        StoreItems.add(new Item("Memes", 420.69f, 5, 31415265));
 
     }
     public void DefineCompletedTasks(){
