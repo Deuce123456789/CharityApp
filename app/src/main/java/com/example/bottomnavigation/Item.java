@@ -2,6 +2,7 @@ package com.example.bottomnavigation;
 
 import java.util.Random;
 
+// Dataclass for holding an item
 public class Item {
     public String name;
     public Float price;

@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// The adapter that displays the list of tasks in
 public class TaskAdapter extends SimpleAdapter {
     static DataClass dataClass = DataClass.get_instance();
 
@@ -26,9 +27,12 @@ public class TaskAdapter extends SimpleAdapter {
         super(context, data, resource, from, to);
     }
 
+    // There's only one of each of these so it's fine to store them out here.
+    // It just means less passing between functions, which is nice.
     TextView progressText;
     ProgressBar progressBar;
 
+    // Adds a view with functionality for a single task
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View root = super.getView(position, convertView, parent);
@@ -66,7 +70,7 @@ public class TaskAdapter extends SimpleAdapter {
         return root;
     }
 
-    @SuppressLint("ResourceAsColor")
+    // Toggle the complete/incomplete appearance of a single task (given its component views)
     private void markCompleted(ImageView checkBox, View bgView, Button btn, boolean completed) {
         //Changes the checkmarks icon to the filled in version
         checkBox.setImageResource(completed
@@ -83,6 +87,7 @@ public class TaskAdapter extends SimpleAdapter {
         btn.setClickable(!completed);
     }
 
+    // Updates the task bar to reflect a new number of completed tasks
     private void updateTaskBar() {
         progressText.setText(
                 "Tasks - " + dataClass.tasksCompleted
@@ -97,6 +102,7 @@ public class TaskAdapter extends SimpleAdapter {
         }
     }
 
+    // Marks a given task as completed, if it isn't already, and awards the tokens for having done so.
     private void completeTask(ImageView checkBox, int taskNum, View bgView, Button btn, Task task){
         //Checks if the task is not already done
         if (!dataClass.completedTasks.get(taskNum)){

@@ -2,6 +2,7 @@ package com.example.bottomnavigation;
 
 import java.util.Random;
 
+// Dataclass for holding a task
 public class Task {
     public String name;
     public String description;

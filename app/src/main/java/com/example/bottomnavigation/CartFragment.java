@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+// The fragment used to display the cart as well as the buy button.
 public class CartFragment extends Fragment {
     private CartBinding binding;
     private View root;
@@ -29,6 +30,7 @@ public class CartFragment extends Fragment {
     private ArrayList<HashMap<String,?>> items;
 
     // This function is called when this fragment's view is first created
+    // and it initializes everything that it needs to.
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,13 +58,16 @@ public class CartFragment extends Fragment {
         root = null;
     }
 
+    // Repeats a given string a given number of times. Used to generate the stars for the rating.
     String repeat(String base, int reps) {
         return new String(new char[reps]).replace("\0",base);
     }
 
+    // Generates a single product to be passed into the adapter and rendered.
     HashMap<String, Object> genProduct(int img, String name, double price, int rating, int id, int tokens) {
         String stars = repeat("★", rating) + repeat("☆", 5-rating);
         return new HashMap<String, Object>() {{
+            // An entry for each view we want to populate with data
             put("img", img);
             put("name", name);
             put("price", String.format("$%.2f", price));
@@ -72,6 +77,7 @@ public class CartFragment extends Fragment {
         }};
     }
 
+    // Generates a list of products given a list of items to base them on.
     ArrayList<HashMap<String,?>> genProducts(List<Item> itms) {
         return new ArrayList<HashMap<String,?>>() {{
             for (Item itm : itms) {
@@ -80,6 +86,7 @@ public class CartFragment extends Fragment {
         }};
     }
 
+    // Initializes the GridView with its adapter and data.
     public void setupGrid() {
         GridView cart = root.findViewById(R.id.cart_grid);
 
@@ -87,7 +94,7 @@ public class CartFragment extends Fragment {
         items = genProducts(dataClass.cart);
         cartAdapter = new CartAdapter(
                 root.getContext(),
-                //method of getting new data, then the initial data.
+                // this line contains a method of getting new data, then the initial data.
                 ()->genProducts(dataClass.cart), items,
                 updateTokenText,
                 R.layout.cart_item,
@@ -97,19 +104,20 @@ public class CartFragment extends Fragment {
         cart.setAdapter(cartAdapter);
     }
 
+    // Finds the number of tokens you should gain, given the current cart.
     int calcTokenGain() {
         int newTokens = 0;
         for (Item i : dataClass.cart) newTokens += i.tokens;
         return newTokens;
     }
 
+    // Updates the adapter to reflect changes in the cart's data
     void onCartUpdate() {
         cartAdapter.updateData();
-        updateTokenText.run();
     }
 
+    // Updates the token text (as a Runnable so it can be passed into the CartAdapter constructor.
     Runnable updateTokenText = ()->
         ((TextView)root.findViewById(R.id.tokens_gained))
             .setText("+"+calcTokenGain()+" Tokens");
-
 }

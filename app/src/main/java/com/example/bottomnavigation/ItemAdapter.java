@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// Simplest adapter in the west. Just takes some data, makes a view, and activates a button.
 public class ItemAdapter extends SimpleAdapter {
     static DataClass dataClass = DataClass.get_instance();
 
@@ -29,6 +30,7 @@ public class ItemAdapter extends SimpleAdapter {
         super(context, data, resource, from, to);
     }
 
+    // Adds a view with functionality for a single item
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View root = super.getView(position, convertView, parent);

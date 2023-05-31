@@ -13,11 +13,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
+// The adapter class that displays all items in the cart
 public class CartAdapter extends SimpleAdapter {
+    // Custom class for a function that returns something and takes no arguments
+    // This is used as the type for the data refresher
     public interface Getter<T> {
         T get();
     }
+
+    // Reference to the dataclass
     static DataClass dataClass = DataClass.get_instance();
+
+    // Variables (the last two are functions of various types)
     private final ArrayList<HashMap<String, ?>> data;
     private final Getter<ArrayList<? extends HashMap<String, ?>>> dataFromCart;
     private final Runnable onUpdateData;
@@ -35,6 +42,9 @@ public class CartAdapter extends SimpleAdapter {
         this.onUpdateData = onUpdateData;
     }
 
+    // This function is called for each item that the cart displays.
+    // The superclass creates the view and the rest of the function
+    // adds functionality to it.
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View root = super.getView(position, convertView, parent);
@@ -68,6 +78,7 @@ public class CartAdapter extends SimpleAdapter {
         return root;
     }
 
+    // Called to notify the class that its data has changed and that it should update accordingly.
     void updateData() {
         data.clear();
         data.addAll(dataFromCart.get());

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// Nice basic adapter that just adds a button along with base SimpleAdapter functionality
 public class CharityAdapter extends SimpleAdapter {
     static DataClass dataClass = DataClass.get_instance();
 
@@ -20,6 +21,7 @@ public class CharityAdapter extends SimpleAdapter {
         super(context, data, resource, from, to);
     }
 
+    // Adds a view with functionality for a single charity
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View root = super.getView(position, convertView, parent);

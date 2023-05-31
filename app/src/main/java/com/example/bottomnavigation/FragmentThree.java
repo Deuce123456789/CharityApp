@@ -32,7 +32,6 @@ public class FragmentThree extends Fragment {
     private DataClass dataClass;
     private ArrayList<HashMap<String,?>> items;
 
-
     // This function is called when this fragment's view is first created
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -52,7 +51,7 @@ public class FragmentThree extends Fragment {
         root = null;
     }
 
-
+    // Generates a single product to be passed into the adapter and rendered.
     HashMap<String, Object> genProduct(String name, String desc, int id) {
         Charity chari = new Charity(name, desc);
         return new HashMap<String, Object>() {{
@@ -62,6 +61,7 @@ public class FragmentThree extends Fragment {
         }};
     }
 
+    // Generates a single product to be passed into the adapter and rendered.
     ArrayList<HashMap<String,?>> genProducts(List<Charity> itms) {
         return new ArrayList<HashMap<String,?>>() {{
             for (Charity cha : itms) {
@@ -70,6 +70,7 @@ public class FragmentThree extends Fragment {
         }};
     }
 
+    // Sets the list of currently displayed items to the results of a search
     void filterItems(CharSequence query) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             String qlower = query.toString().toLowerCase(Locale.ROOT);
@@ -82,15 +83,10 @@ public class FragmentThree extends Fragment {
         }
     }
 
+    // Initializes the list of charities and the searchbar
     void setupScreen() {
-        // Since we're now in a Fragment and not an Activity, we can't just call findViewById()
-        // directly. Instead, need to call root.findViewById() to to the connect XML views.
-
-
         GridView charities = root.findViewById(R.id.charity_grid);
         EditText searchbar = root.findViewById(R.id.store_search);
-
-
 
         items = genProducts(dataClass.CharityItems);
         itemAdapter = new CharityAdapter(
@@ -114,8 +110,5 @@ public class FragmentThree extends Fragment {
                 filterItems(s);
             }
         });
-
-
-
     }
 }

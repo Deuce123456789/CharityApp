@@ -55,6 +55,8 @@ public class FragmentTwo extends Fragment {
         binding = null;
         root = null;
     }
+
+    // Generates a single product to be passed into the adapter and rendered.
     HashMap<String, Object> genProduct(String name, Integer tokens, String description, int id) {
         return new HashMap<String, Object>() {{
             put("name", name);
@@ -64,6 +66,7 @@ public class FragmentTwo extends Fragment {
         }};
     }
 
+    // Generates a single product to be passed into the adapter and rendered.
     ArrayList<HashMap<String,?>> genProducts(List<Task> tsks) {
         return new ArrayList<HashMap<String,?>>() {{
             for (Task tsk : tsks) {
@@ -71,19 +74,8 @@ public class FragmentTwo extends Fragment {
             }
         }};
     }
-    void filterTasks(CharSequence query) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            String qlower = query.toString().toLowerCase(Locale.ROOT);
-            List<Task> results = dataClass.tasks.stream()
-                    .filter(i->i.name.toLowerCase(Locale.ROOT).contains(qlower))
-                    .collect(Collectors.toList());
-            tasks.clear();
-            tasks.addAll(genProducts(results));
-            taskAdapter.notifyDataSetChanged();
-            System.out.println("hfljhsfdlg");
-        }
-    }
 
+    // Initializes the list of tasks and the progress bar
     void setupScreen() {
         //Find the instance of data class
         this.dataClass = DataClass.get_instance();

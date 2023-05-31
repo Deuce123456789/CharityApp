@@ -26,7 +26,6 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class FragmentOne extends Fragment {
-    //This is a test
     private FragmentOneBinding binding;
     private View root;
     private DataClass dataClass;
@@ -53,10 +52,13 @@ public class FragmentOne extends Fragment {
         root = null;
     }
 
+
+    // Repeats a given string a given number of times. Used to generate the stars for the rating.
     String repeat(String base, int reps) {
         return new String(new char[reps]).replace("\0",base);
     }
 
+    // Generates a single product to be passed into the adapter and rendered.
     HashMap<String, Object> genProduct(int img, String name, double price, int rating, int id) {
         String stars = repeat("★", rating) + repeat("☆", 5-rating);
         return new HashMap<String, Object>() {{
@@ -68,6 +70,7 @@ public class FragmentOne extends Fragment {
         }};
     }
 
+    // Generates a list of products given a list of items to base them on.
     ArrayList<HashMap<String,?>> genProducts(List<Item> itms) {
         return new ArrayList<HashMap<String,?>>() {{
             for (Item itm : itms) {
@@ -76,6 +79,7 @@ public class FragmentOne extends Fragment {
         }};
     }
 
+    // Sets the list of currently displayed items to the results of a search
     void filterItems(CharSequence query) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             String qlower = query.toString().toLowerCase(Locale.ROOT);
@@ -88,9 +92,8 @@ public class FragmentOne extends Fragment {
         }
     }
 
+    // Initializes the list of products and the searchbar
     void setupScreen() {
-        // Since we're now in a Fragment and not an Activity, we can't just call findViewById()
-        // directly. Instead, need to call root.findViewById() to to the connect XML views.
         GridView products = root.findViewById(R.id.store_product_grid);
         EditText searchbar = root.findViewById(R.id.store_search);
 

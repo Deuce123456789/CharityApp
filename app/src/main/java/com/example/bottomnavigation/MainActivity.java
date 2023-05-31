@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Initialize the bottom navigation bar and the ability to switch between fragments
     void setupBottomNav() {
         // This is the nav_view "container" as laid out in the XML file
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-
+    // Initialize the top bar and the token display in it
     void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         View abView = getLayoutInflater().inflate(R.layout.general_top_header, null);
         TextView tokens = abView.findViewById(R.id.token_counter);
         DataClass.get_instance().NumTokens.observe(this,
-                i -> tokens.setText("tokens: "+Integer.toString(i)));
+                i -> tokens.setText("Tokens: "+Integer.toString(i)));
         ImageView cart_icon = abView.findViewById(R.id.cart_icon);
         cart_icon.setOnClickListener(v->setCartVisible(true));
 
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setCustomView(abView, layoutParams);
     }
 
+    // Function for toggling the visibility of the cart (and conversely, the nav items)
     void setCartVisible(boolean visible) {
         if (visible) {
             cart.setVisibility(View.VISIBLE);
