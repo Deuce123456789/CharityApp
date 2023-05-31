@@ -69,7 +69,7 @@ public class DataClass {
         tasks.add(new Task("erg",10, "Does some stuff that works?"));
         tasks.add(new Task("qwerghg",10, "Does some stuff that works?"));
         tasks.add(new Task("qwergd",10, "Does some stuff that works?"));
-        //Fill completed tasks with empty booleans
+        //Fill completedTasks with one false for each task (they aren't completed yet)
         for (int i = 0; i < tasks.size(); i++){
             completedTasks.add(false);
         }

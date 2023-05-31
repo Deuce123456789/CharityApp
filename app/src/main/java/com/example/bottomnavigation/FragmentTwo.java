@@ -80,7 +80,7 @@ public class FragmentTwo extends Fragment {
         //Find the instance of data class
         this.dataClass = DataClass.get_instance();
         ProgressBar progressBar = root.findViewById(R.id.taskCompleteBar);
-        //ConstraintLayout taskLayout = root.findViewById(R.id.task_list);
+
         GridView taskView = root.findViewById(R.id.task_scroll);
         tasks = genProducts(dataClass.tasks);
         taskAdapter = new TaskAdapter(

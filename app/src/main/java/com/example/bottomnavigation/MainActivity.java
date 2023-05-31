@@ -73,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    // Initialize the top bar and the token display in it
+    // Initialize a custom top bar
     void setupActionBar() {
+        // Make it customizable
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 ActionBar.LayoutParams.MATCH_PARENT,
                 Gravity.CENTER);
 
+        // Actually customize it
         View abView = getLayoutInflater().inflate(R.layout.general_top_header, null);
         TextView tokens = abView.findViewById(R.id.token_counter);
         DataClass.get_instance().NumTokens.observe(this,
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView cart_icon = abView.findViewById(R.id.cart_icon);
         cart_icon.setOnClickListener(v->setCartVisible(true));
 
-
+        // Apply customizations
         actionBar.setCustomView(abView, layoutParams);
     }
 

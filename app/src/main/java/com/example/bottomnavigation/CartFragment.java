@@ -40,6 +40,7 @@ public class CartFragment extends Fragment {
 
         setupGrid();
 
+        // Set up the buy button to add tokens to your balance, then clear the cart.
         Button buy_button = root.findViewById(R.id.buy_button);
         buy_button.setOnClickListener(v -> {
             dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+calcTokenGain());
@@ -94,8 +95,10 @@ public class CartFragment extends Fragment {
         items = genProducts(dataClass.cart);
         cartAdapter = new CartAdapter(
                 root.getContext(),
-                // this line contains a method of getting new data, then the initial data.
-                ()->genProducts(dataClass.cart), items,
+                // A function for getting updated data
+                ()->genProducts(dataClass.cart),
+                // The initial data, pre-updates
+                items,
                 updateTokenText,
                 R.layout.cart_item,
                 new String[]{"img", "name", "price", "stars", "id", "tokens"},

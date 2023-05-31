@@ -97,7 +97,7 @@ public class FragmentOne extends Fragment {
         GridView products = root.findViewById(R.id.store_product_grid);
         EditText searchbar = root.findViewById(R.id.store_search);
 
-        // one hashmap for each product to display
+        // one hashmap for each product to display, all in a list
         items = genProducts(dataClass.StoreItems);
         itemAdapter = new ItemAdapter(
             root.getContext(), items,
@@ -114,7 +114,7 @@ public class FragmentOne extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {}
 
-            // The real one
+            // The real one, filter items on change of text
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 filterItems(s);
