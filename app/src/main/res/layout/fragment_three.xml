@@ -73,4 +73,12 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/charity_item" />
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/donate_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.bottomnavigation.PopupFragment"
+        android:visibility="gone"
+        tools:layout="@layout/donatepopup" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

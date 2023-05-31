@@ -49,6 +49,8 @@ public class CartAdapter extends SimpleAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View root = super.getView(position, convertView, parent);
 
+        onUpdateData.run();
+
         // Find the button and the ID
         Button remove_button = root.findViewById(R.id.product_cart_remove_button);
         TextView id_text = root.findViewById(R.id.product_id);

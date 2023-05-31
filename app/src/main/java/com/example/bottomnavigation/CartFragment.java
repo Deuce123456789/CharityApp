@@ -42,11 +42,13 @@ public class CartFragment extends Fragment {
 
         // Set up the buy button to add tokens to your balance, then clear the cart.
         Button buy_button = root.findViewById(R.id.buy_button);
+
         buy_button.setOnClickListener(v -> {
             dataClass.NumTokens.setValue(dataClass.NumTokens.getValue()+calcTokenGain());
             dataClass.cart.clear();
             onCartUpdate();
         });
+
 
         return root;
     }
