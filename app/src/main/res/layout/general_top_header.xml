@@ -7,15 +7,16 @@
     android:gravity="center_vertical"
     android:background="@color/blue_top">
 
-    <TextView
+    <ImageView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="CharStore"
+        android:layout_marginVertical="2dp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/token_counter"
@@ -35,7 +36,7 @@
         android:id="@+id/cart_icon"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_home_black_24dp"
+        android:src="@drawable/cart_icon"
         app:tint="@color/white"
         android:layout_weight="1"/>
 </LinearLayout>
