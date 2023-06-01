@@ -28,7 +28,8 @@
             android:id="@+id/task_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IDK a task name?"
+            android:maxWidth="200dp"
+            android:text="IDK a task name eee?"
             android:textAlignment="viewStart"
             android:textColor="#040606"
             android:textSize="23sp"
@@ -60,8 +61,9 @@
             android:id="@+id/task_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxWidth="325dp"
             android:layout_marginStart="20dp"
-            android:text="Some sort of a task description?"
+            android:text="Some sort of a task tak dfjgh asf fd as fg a sf gsaf fds description?"
             app:layout_constraintStart_toStartOf="@id/task_check"
             app:layout_constraintTop_toBottomOf="@id/task_divider" />
         <View

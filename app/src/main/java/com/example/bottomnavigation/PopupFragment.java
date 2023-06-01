@@ -1,7 +1,5 @@
 package com.example.bottomnavigation;
 
-
-
 import static androidx.core.content.ContextCompat.getSystemService;
 
 import android.annotation.SuppressLint;
@@ -16,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -34,6 +32,7 @@ public class PopupFragment extends Fragment {
     private DonatepopupBinding binding;
     private View root;
     private DataClass dataClass;
+    private String name;
 
     // This function is called when this fragment's view is first created
     // and it initializes everything that it needs to.
@@ -48,6 +47,7 @@ public class PopupFragment extends Fragment {
 
 
         Button donate_btn = root.findViewById(R.id.donate_btn);
+        Button cancel_btn = root.findViewById(R.id.cancel_btn);
         EditText donation_inp = root.findViewById(R.id.donation_inp);
 
 
@@ -55,13 +55,19 @@ public class PopupFragment extends Fragment {
         donate_btn.setOnClickListener(v -> {
 
             String tokenstr = donation_inp.getText().toString();
+            if (tokenstr.isEmpty()) return;
             int spentTokens = Integer.parseInt(tokenstr);
             if (dataClass.NumTokens.getValue() >= spentTokens) {
                 dataClass.NumTokens.setValue(dataClass.NumTokens.getValue() - spentTokens);
                 popupcontainer.setVisibility(View.GONE);
                 hideKeyboardFrom(getContext(), getView());
+                Toast.makeText(root.getContext(), "You just donated to '"+name+"'", Toast.LENGTH_LONG).show();
             }
 
+        });
+
+        cancel_btn.setOnClickListener(v -> {
+            popupcontainer.setVisibility(View.GONE);
         });
 
         return root;
@@ -77,5 +83,11 @@ public class PopupFragment extends Fragment {
         super.onDestroy();
         binding = null;
         root = null;
+    }
+
+    public void setCharity(Charity charity) {
+        TextView cname = root.findViewById(R.id.popup_charity_name);
+        cname.setText(charity.name);
+        name = charity.name;
     }
 }

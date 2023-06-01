@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="410dp"
+    android:layout_width="370dp"
     android:layout_height="65dp"
     android:background="@drawable/grey_border"
     android:orientation="vertical"
@@ -13,12 +13,11 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-
         <TextView
             android:id="@+id/charity_name"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
 
             android:text="Charity McThingy"
             android:textColor="@color/black"
@@ -26,11 +25,15 @@
 
             android:textStyle="bold" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
         <Button
             android:id="@+id/donate_button"
-            android:layout_width="116dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250px"
             android:layout_marginTop="0px"
             android:backgroundTint="#FFA53A"
             android:text="Donate"

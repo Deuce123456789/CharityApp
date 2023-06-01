@@ -55,8 +55,8 @@ public class FragmentThree extends Fragment {
     }
 
     // Generates a single product to be passed into the adapter and rendered.
-    HashMap<String, Object> genProduct(String name, String desc, int id) {
-        Charity chari = new Charity(name, desc);
+    HashMap<String, Object> genProduct(String name, int id) {
+        Charity chari = new Charity(name);
         return new HashMap<String, Object>() {{
             put("chari", chari);
             put("name", chari.name);
@@ -68,7 +68,7 @@ public class FragmentThree extends Fragment {
     ArrayList<HashMap<String,?>> genProducts(List<Charity> itms) {
         return new ArrayList<HashMap<String,?>>() {{
             for (Charity cha : itms) {
-                add(genProduct(cha.name, cha.desc, cha.id));
+                add(genProduct(cha.name, cha.id));
             }
         }};
     }

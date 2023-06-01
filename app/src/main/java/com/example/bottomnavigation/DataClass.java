@@ -45,30 +45,38 @@ public class DataClass {
     // Set up the list of charities
     public void DefineCharities() {
         //salvation army declaration
-        CharityItems.add(new Charity("Salvation Army", "Description goes here."));
-        CharityItems.add(new Charity("Salvation Army2", "Description goes here."));
-        CharityItems.add(new Charity("Salvation Army3", "Description goes here."));
+        String[] chars = {
+                "Salvation Army",
+                "Red Cross",
+                "Canadian Cancer Society",
+                "Food Banks Canada",
+                "World Vision Canada",
+                "Heart and Stroke Foundation",
+                "Indspire"
+        };
+        for (String c :
+                chars) {
+            CharityItems.add(new Charity(c));
+        }
     }
 
     // Set up the list of items
     public void DefineItems(){
-        StoreItems.add(new Item("My Laptop Item", 999.99f, 4, 69));
-        StoreItems.add(new Item("Other Thing", 50f, 2, 420));
-        StoreItems.add(new Item("Memes", 420.69f, 5, 69420));
-        StoreItems.add(new Item("Some Item Variety", 1234567.89f, 0, 3245));
-        StoreItems.add(new Item("Other Thing", 50f, 2,1234567890));
-        StoreItems.add(new Item("Memes", 420.69f, 5, 31415265));
+        StoreItems.add(new Item("Down Jacket", 193.99f, 4, 3284, R.drawable.itm1));
+        StoreItems.add(new Item("Rummikub Game", 19.95f, 5, 643, R.drawable.itm2));
+        StoreItems.add(new Item("Wallet", 59.99f, 3, 1454, R.drawable.itm3));
+        StoreItems.add(new Item("Amazon Echo Dot", 64.99f, 4, 1567, R.drawable.itm4));
+        StoreItems.add(new Item("Amazon Echo Dot (kids ver.)", 79.99f, 5,4234, R.drawable.itm5));
+        StoreItems.add(new Item("Engraved Necklace", 16.79f, 4, 255, R.drawable.itm6));
     }
 
     // Set up the list of tasks
     public void DefineTasks(){
-        tasks.add(new Task("Do something",10, "Does some stuff that works?"));
-        tasks.add(new Task("sdfg",10, "Does some stuff that works?"));
-        tasks.add(new Task("sdfgdsgf",10, "Does some stuff that works?"));
-        tasks.add(new Task("Dsdfg",10, "Does some stuff that works?"));
-        tasks.add(new Task("erg",10, "Does some stuff that works?"));
-        tasks.add(new Task("qwerghg",10, "Does some stuff that works?"));
-        tasks.add(new Task("qwergd",10, "Does some stuff that works?"));
+        tasks.add(new Task("Watch a 15-second ad",5, "Watch this quick ad for some free tokens."));
+        tasks.add(new Task("Watch a 30-second ad",10, "Watch this slightly longer ad for some more free tokens."));
+        tasks.add(new Task("Take a Survey",100, "Take this quick 15-question survey and be rewarded."));
+        tasks.add(new Task("Subscribe to a Newsletter",20, "Just enter your email."));
+        tasks.add(new Task("Visit this Website",5, "They have cool stuff there."));
         //Fill completedTasks with one false for each task (they aren't completed yet)
         for (int i = 0; i < tasks.size(); i++){
             completedTasks.add(false);

@@ -51,8 +51,8 @@ public class CharityAdapter extends SimpleAdapter {
 
         // Set a listener that adds the item to the cart and says so
         buy_button.setOnClickListener((v)->{
-            Toast.makeText(root.getContext(), "You just donated to '"+itm.name+"'", Toast.LENGTH_LONG).show();
             setPopupVisible(true);
+            ((PopupFragment)donatepopup.getFragment()).setCharity(itm);
         });
 
         // Required for parity with base SimpleAdapter
