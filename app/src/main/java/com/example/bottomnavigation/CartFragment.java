@@ -84,7 +84,7 @@ public class CartFragment extends Fragment {
     ArrayList<HashMap<String,?>> genProducts(List<Item> itms) {
         return new ArrayList<HashMap<String,?>>() {{
             for (Item itm : itms) {
-                add(genProduct(R.drawable.ic_star_1, itm.name, itm.price, itm.rating, itm.id, itm.tokens));
+                add(genProduct(itm.image_id, itm.name, itm.price, itm.rating, itm.id, itm.tokens));
             }
         }};
     }
