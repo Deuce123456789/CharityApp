@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_width="380dp"
+    android:layout_height="320dp">
+    <EditText
+        android:id="@+id/donation_inp"
+        android:layout_gravity="center_horizontal"
+        android:hint="Donation amount"
+        android:layout_width="100dp"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/donate_btn"
+        android:layout_width="285dp"
+        android:layout_height="75dp"
+
+        android:layout_gravity="center"
+        android:background="#FFC120"
+        android:backgroundTint="#FFC120"
+        android:text="Donate"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp" />
+    
+
+
+
+
+</LinearLayout>

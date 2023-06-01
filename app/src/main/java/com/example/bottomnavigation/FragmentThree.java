@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
 
 import com.example.bottomnavigation.databinding.FragmentThreeBinding;
 
@@ -31,6 +32,8 @@ public class FragmentThree extends Fragment {
     private CharityAdapter itemAdapter;
     private DataClass dataClass;
     private ArrayList<HashMap<String,?>> items;
+
+
 
     // This function is called when this fragment's view is first created
     @Override
@@ -100,9 +103,12 @@ public class FragmentThree extends Fragment {
         searchbar.addTextChangedListener(new TextWatcher() {
             // Irrelevant unused functions
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
 
             // The real one
             @Override
@@ -111,4 +117,5 @@ public class FragmentThree extends Fragment {
             }
         });
     }
+
 }
